@@ -13,6 +13,7 @@ class NoteList extends HTMLElement {
       noteItem.setAttribute('title', note.title);
       noteItem.setAttribute('body', note.body);
       noteItem.setAttribute('date', new Date(note.createdAt).toLocaleDateString());
+      noteItem.setAttribute('id', note.id);
       this.appendChild(noteItem);
     });
   }
