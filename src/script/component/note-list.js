@@ -1,12 +1,13 @@
-import notesData from '../data/local.js';
+import { fetchNotes } from '../data/api.js';
 
 class NoteList extends HTMLElement {
   connectedCallback() {
     this.renderNotes();
   }
 
-  renderNotes() {
+  async renderNotes() {
     this.innerHTML = '';
+    const notesData = await fetchNotes();
     notesData.forEach((note) => {
       const noteItem = document.createElement('note-item');
       noteItem.setAttribute('title', note.title);
