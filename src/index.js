@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       noteItem.setAttribute('title', note.title);
       noteItem.setAttribute('body', note.body);
       noteItem.setAttribute('date', new Date(note.createdAt).toLocaleDateString());
+      noteItem.setAttribute('id', note.id);
       noteList.appendChild(noteItem);
     });
   };

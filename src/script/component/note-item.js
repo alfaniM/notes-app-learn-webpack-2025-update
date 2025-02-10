@@ -1,3 +1,5 @@
+import { deleteNote } from '../data/api.js';
+
 class NoteItem extends HTMLElement {
   connectedCallback() {
     this.title = this.getAttribute('title');
