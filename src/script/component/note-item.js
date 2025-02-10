@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import { deleteNote } from '../data/api.js';
 
+=======
+>>>>>>> ghcw-session-fe51
 class NoteItem extends HTMLElement {
   connectedCallback() {
     this.title = this.getAttribute('title');
