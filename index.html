@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+    <link rel="stylesheet" href="./src/styles/styles.css" />
+    <link rel="icon" href="./src/public/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📙 Notes App</h1>
+        <div class="toggle-wrapper" id="theme-toggle">
+          <span class="icon">☀️</span>
+          <div class="toggle"></div>
+          <span class="icon">🌙</span>
+        </div>
+      </header>
+
+      <main>
+        <form id="note-form">
+          <input type="text" id="note-title" placeholder="Add your note title" required />
+          <textarea id="note-body" placeholder="Add your note description" required></textarea>
+          <button type="submit">➕ Add Note</button>
+        </form>
+
+        <section id="notes-container" class="note-list"></section>
+      </main>
+    </div>
+
+    <footer>
+      <footer-bar></footer-bar>
+    </footer>
+
+    <script type="module" src="./src/script/data/local.js"></script>
+    <script type="module" src="./src/script/component/note-item.js"></script>
+    <script type="module" src="./src/script/component/note-list.js"></script>
+    <script type="module" src="./src/script/component/toggle-theme.js"></script>
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>
