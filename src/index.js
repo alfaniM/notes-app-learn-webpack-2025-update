@@ -3,6 +3,7 @@ import './script/component/toggle-theme.js';
 import './script/component/note-item.js';
 import './script/component/note-list.js';
 import './script/component/footer-bar.js';
+import './script/component/app-bar.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const noteList = document.querySelector('#notes-container');
