@@ -13,10 +13,7 @@ class NoteList extends HTMLElement {
       noteItem.setAttribute('title', note.title);
       noteItem.setAttribute('body', note.body);
       noteItem.setAttribute('date', new Date(note.createdAt).toLocaleDateString());
-<<<<<<< HEAD
       noteItem.setAttribute('id', note.id);
-=======
->>>>>>> ghcw-session-fe51
       this.appendChild(noteItem);
     });
   }
