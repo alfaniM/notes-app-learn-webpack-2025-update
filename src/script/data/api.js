@@ -1,42 +1,39 @@
-const API_URL = 'https://notes-api.dicoding.dev/v2';
+const BASE_URL = 'https://notes-api.dicoding.dev/v2';
 
-export const fetchNotes = async () => {
-  try {
-    const response = await fetch(`${API_URL}/notes`);
-    const data = await response.json();
-    return data.data;
-  } catch (error) {
-    console.error('Failed to fetch notes:', error);
-    return [];
-  }
-};
+/** Ambil catatan aktif */
+export async function fetchNotes() {
+  const response = await fetch(`${BASE_URL}/notes`);
+  const { data } = await response.json();
+  return data;
+}
 
-export const addNote = async (note) => {
-  try {
-    const response = await fetch(`${API_URL}/notes`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(note),
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Failed to add note:', error);
-    return null;
-  }
-};
+/** Ambil catatan yang diarsipkan */
+export async function fetchArchivedNotes() {
+  const response = await fetch(`${BASE_URL}/notes/archived`);
+  const { data } = await response.json();
+  return data;
+}
 
-export const deleteNote = async (id) => {
-  try {
-    const response = await fetch(`${API_URL}/notes/${id}`, {
-      method: 'DELETE',
-    });
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Failed to delete note:', error);
-    return null;
-  }
-};
+/** Tambah catatan baru */
+export async function addNote(note) {
+  await fetch(`${BASE_URL}/notes`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(note),
+  });
+}
+
+/** Hapus catatan */
+export async function deleteNote(id) {
+  await fetch(`${BASE_URL}/notes/${id}`, { method: 'DELETE' });
+}
+
+/** Arsipkan catatan */
+export async function archiveNote(id) {
+  await fetch(`${BASE_URL}/notes/${id}/archive`, { method: 'POST' });
+}
+
+/** Kembalikan catatan dari arsip */
+export async function unarchiveNote(id) {
+  await fetch(`${BASE_URL}/notes/${id}/unarchive`, { method: 'POST' });
+}

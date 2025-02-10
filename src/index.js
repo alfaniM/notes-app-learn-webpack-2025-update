@@ -10,40 +10,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   const titleInput = document.querySelector('#note-title');
   const bodyInput = document.querySelector('#note-body');
 
-  // Render notes
+  // Render ulang catatan
   const renderNotes = async () => {
+    const noteListComponent = document.createElement('note-list');
     noteList.innerHTML = '';
-    const notesData = await fetchNotes();
-    notesData.forEach((note) => {
-      const noteItem = document.createElement('note-item');
-      noteItem.setAttribute('title', note.title);
-      noteItem.setAttribute('body', note.body);
-      noteItem.setAttribute('date', new Date(note.createdAt).toLocaleDateString());
-      noteItem.setAttribute('id', note.id);
-      noteList.appendChild(noteItem);
-    });
+    noteList.appendChild(noteListComponent);
   };
 
-  // Add new note
+  // Tambah catatan baru
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const newNote = {
+    await addNote({
       title: titleInput.value,
       body: bodyInput.value,
-    };
-    await addNote(newNote);
+    });
     titleInput.value = '';
     bodyInput.value = '';
     renderNotes();
-  });
-
-  // Delete note
-  noteList.addEventListener('click', async (e) => {
-    if (e.target.classList.contains('delete-note')) {
-      const noteId = e.target.dataset.id;
-      await deleteNote(noteId);
-      renderNotes();
-    }
   });
 
   renderNotes();

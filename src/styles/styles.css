@@ -31,7 +31,7 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 50%;
   width: 90%;
   padding: 1rem;
   box-sizing: border-box;
@@ -103,10 +103,11 @@ form button {
   cursor: pointer;
 }
 
-.note-list {
+.note-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .note-item {
@@ -116,7 +117,6 @@ form button {
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  overflow-wrap: break-word;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -126,13 +126,40 @@ form button {
 }
 
 .note-item h2 {
-  margin: 0;
   font-size: 1.2rem;
   color: var(--accent-color);
 }
 
-.note-item p {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.5;
+.note-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.note-actions button {
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.delete-note {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.archive-note,
+.unarchive-note {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.delete-note:hover {
+  background-color: #cc0000;
+}
+
+.archive-note:hover,
+.unarchive-note:hover {
+  background-color: #0056b3;
 }
