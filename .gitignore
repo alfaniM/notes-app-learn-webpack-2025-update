@@ -19,5 +19,5 @@ build/
 .vscode/
 .DS_Store
 
-#dummy
-.bulk_add_sample_notes
+# dummy
+bulk_add_sample_notes.sh
