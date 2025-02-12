@@ -1,5 +1,29 @@
 {
   "dependencies": {
     "sweetalert2": "^11.16.0"
-  }
+  },
+  "name": "new-notes--webpack",
+  "version": "1.0.0",
+  "description": "Proyek notes app saya belajar pertama kali dengan webpack",
+  "private": true,
+  "main": "index.js",
+  "devDependencies": {
+    "cli": "^1.0.1",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfaniM/notes-app-learn-webpack-2025-update.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfaniM/notes-app-learn-webpack-2025-update/issues"
+  },
+  "homepage": "https://github.com/alfaniM/notes-app-learn-webpack-2025-update#readme"
 }
