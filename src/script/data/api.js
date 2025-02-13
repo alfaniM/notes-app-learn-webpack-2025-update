@@ -1,12 +1,12 @@
 const BASE_URL = 'https://notes-api.dicoding.dev/v2';
 
-/** Helper untuk fetch dengan error handling */
+/** Helper for fetch with error handling */
 async function fetchWithHandling(url, options = {}) {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-
-    // console.log('Respon API:', result); // Tambahkan ini untuk debug
+    console.log('Fetch URL:', url);
+    console.log('Fetch Result:', result);
 
     if (!response.ok) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
@@ -14,12 +14,12 @@ async function fetchWithHandling(url, options = {}) {
 
     return result;
   } catch (error) {
-    console.error(`Gagal melakukan fetch: ${url}`, error);
-    throw error; // Biarkan error diteruskan ke pemanggil
+    console.error(`Failed to fetch: ${url}`, error);
+    throw error; // Let the error propagate
   }
 }
 
-/** Ambil catatan aktif */
+/** Fetch active notes */
 export async function fetchNotes() {
   const result = await fetchWithHandling(`${BASE_URL}/notes`);
   if (result && result.data && Array.isArray(result.data)) {
@@ -31,12 +31,19 @@ export async function fetchNotes() {
   }
 }
 
-/** Ambil catatan yang diarsipkan */
-export function fetchArchivedNotes() {
-  return fetchWithHandling(`${BASE_URL}/notes/archived`);
+/** Fetch archived notes */
+export async function fetchArchivedNotes() {
+  const result = await fetchWithHandling(`${BASE_URL}/notes/archived`);
+  if (result && result.data && Array.isArray(result.data)) {
+    return result.data;
+  } else if (result && result.data && Array.isArray(result.data.notes)) {
+    return result.data.notes;
+  } else {
+    throw new Error('Invalid response format');
+  }
 }
 
-/** Tambah catatan baru */
+/** Add a new note */
 export function addNote(note) {
   return fetchWithHandling(`${BASE_URL}/notes`, {
     method: 'POST',
@@ -45,17 +52,17 @@ export function addNote(note) {
   });
 }
 
-/** Hapus catatan */
+/** Delete a note */
 export function deleteNote(id) {
   return fetchWithHandling(`${BASE_URL}/notes/${id}`, { method: 'DELETE' });
 }
 
-/** Arsipkan catatan */
+/** Archive a note */
 export function archiveNote(id) {
   return fetchWithHandling(`${BASE_URL}/notes/${id}/archive`, { method: 'POST' });
 }
 
-/** Kembalikan catatan dari arsip */
+/** Unarchive a note */
 export function unarchiveNote(id) {
   return fetchWithHandling(`${BASE_URL}/notes/${id}/unarchive`, { method: 'POST' });
 }

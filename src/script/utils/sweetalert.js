@@ -1,18 +1,18 @@
 import Swal from 'sweetalert2';
 
-// Notifikasi sukses
-export function showSuccess(message = 'Berhasil!') {
+// Success notification
+export function showSuccess(message = 'Success!') {
   Swal.fire({
     icon: 'success',
-    title: 'Sukses!',
+    title: 'Success!',
     text: message,
     timer: 2000,
     showConfirmButton: false,
   });
 }
 
-// Notifikasi error
-export function showError(message = 'Terjadi kesalahan!') {
+// Error notification
+export function showError(message = 'An error occurred!') {
   Swal.fire({
     icon: 'error',
     title: 'Oops...',
@@ -20,15 +20,15 @@ export function showError(message = 'Terjadi kesalahan!') {
   });
 }
 
-// Konfirmasi sebelum melakukan aksi
-export async function showConfirm(message = 'Yakin ingin melanjutkan?') {
+// Confirmation before performing an action
+export async function showConfirm(message = 'Are you sure you want to proceed?') {
   const result = await Swal.fire({
-    title: 'Konfirmasi',
+    title: 'Confirmation',
     text: message,
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonText: 'Ya, Lanjutkan',
-    cancelButtonText: 'Batal',
+    confirmButtonText: 'Yes, proceed',
+    cancelButtonText: 'Cancel',
   });
 
   return result.isConfirmed;
