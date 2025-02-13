@@ -118,7 +118,7 @@ form button {
   overflow: auto; /* Tambahkan scroll jika teks terlalu panjang */
 }
 
-.note-grid {
+.note-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
@@ -194,7 +194,7 @@ form button {
     padding: 0.5rem;
   }
 
-  .note-grid {
+  .note-list {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 

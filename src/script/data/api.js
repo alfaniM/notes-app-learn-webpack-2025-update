@@ -1,22 +1,44 @@
 const BASE_URL = 'https://notes-api.dicoding.dev/v2';
 
+/** Helper untuk fetch dengan error handling */
+async function fetchWithHandling(url, options = {}) {
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+
+    // console.log('Respon API:', result); // Tambahkan ini untuk debug
+
+    if (!response.ok) {
+      throw new Error(`HTTP Error! Status: ${response.status}`);
+    }
+
+    return result;
+  } catch (error) {
+    console.error(`Gagal melakukan fetch: ${url}`, error);
+    throw error; // Biarkan error diteruskan ke pemanggil
+  }
+}
+
 /** Ambil catatan aktif */
 export async function fetchNotes() {
-  const response = await fetch(`${BASE_URL}/notes`);
-  const { data } = await response.json();
-  return data;
+  const result = await fetchWithHandling(`${BASE_URL}/notes`);
+  if (result && result.data && Array.isArray(result.data)) {
+    return result.data;
+  } else if (result && result.data && Array.isArray(result.data.notes)) {
+    return result.data.notes;
+  } else {
+    throw new Error('Invalid response format');
+  }
 }
 
 /** Ambil catatan yang diarsipkan */
-export async function fetchArchivedNotes() {
-  const response = await fetch(`${BASE_URL}/notes/archived`);
-  const { data } = await response.json();
-  return data;
+export function fetchArchivedNotes() {
+  return fetchWithHandling(`${BASE_URL}/notes/archived`);
 }
 
 /** Tambah catatan baru */
-export async function addNote(note) {
-  await fetch(`${BASE_URL}/notes`, {
+export function addNote(note) {
+  return fetchWithHandling(`${BASE_URL}/notes`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(note),
@@ -24,16 +46,16 @@ export async function addNote(note) {
 }
 
 /** Hapus catatan */
-export async function deleteNote(id) {
-  await fetch(`${BASE_URL}/notes/${id}`, { method: 'DELETE' });
+export function deleteNote(id) {
+  return fetchWithHandling(`${BASE_URL}/notes/${id}`, { method: 'DELETE' });
 }
 
 /** Arsipkan catatan */
-export async function archiveNote(id) {
-  await fetch(`${BASE_URL}/notes/${id}/archive`, { method: 'POST' });
+export function archiveNote(id) {
+  return fetchWithHandling(`${BASE_URL}/notes/${id}/archive`, { method: 'POST' });
 }
 
 /** Kembalikan catatan dari arsip */
-export async function unarchiveNote(id) {
-  await fetch(`${BASE_URL}/notes/${id}/unarchive`, { method: 'POST' });
+export function unarchiveNote(id) {
+  return fetchWithHandling(`${BASE_URL}/notes/${id}/unarchive`, { method: 'POST' });
 }
