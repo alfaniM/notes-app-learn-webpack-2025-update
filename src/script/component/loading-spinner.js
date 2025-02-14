@@ -34,12 +34,16 @@ class LoadingSpinner extends HTMLElement {
   }
 
   show() {
-    this.shadowRoot.querySelector('.spinner-container').classList.add('visible');
+    this.shadowRoot
+      .querySelector('.spinner-container')
+      .classList.add('visible');
   }
 
   hide() {
     setTimeout(() => {
-      this.shadowRoot.querySelector('.spinner-container').classList.remove('visible');
+      this.shadowRoot
+        .querySelector('.spinner-container')
+        .classList.remove('visible');
     }, 300);
   }
 }

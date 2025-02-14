@@ -59,10 +59,14 @@ export function deleteNote(id) {
 
 /** Archive a note */
 export function archiveNote(id) {
-  return fetchWithHandling(`${BASE_URL}/notes/${id}/archive`, { method: 'POST' });
+  return fetchWithHandling(`${BASE_URL}/notes/${id}/archive`, {
+    method: 'POST',
+  });
 }
 
 /** Unarchive a note */
 export function unarchiveNote(id) {
-  return fetchWithHandling(`${BASE_URL}/notes/${id}/unarchive`, { method: 'POST' });
+  return fetchWithHandling(`${BASE_URL}/notes/${id}/unarchive`, {
+    method: 'POST',
+  });
 }

@@ -17,7 +17,7 @@ class NoteList extends HTMLElement {
 
     `;
 
-    await customElements.whenDefined('loading-spinner'); // Tunggu sampai elemen terdaftar
+    await customElements.whenDefined('loading-spinner');
     const spinner = this.querySelector('loading-spinner');
 
     if (!spinner) {
@@ -25,7 +25,7 @@ class NoteList extends HTMLElement {
       return;
     }
 
-    spinner.show(); // Tampilkan loading spinner
+    spinner.show();
     console.log('Loading spinner ditampilkan');
 
     try {
@@ -42,7 +42,7 @@ class NoteList extends HTMLElement {
     } catch (error) {
       console.error('Error fetching notes:', error);
     } finally {
-      spinner.hide(); // Sembunyikan loading spinner setelah selesai
+      spinner.hide();
     }
   }
 
@@ -54,7 +54,10 @@ class NoteList extends HTMLElement {
       const noteItem = document.createElement('note-item');
       noteItem.setAttribute('title', note.title);
       noteItem.setAttribute('body', note.body);
-      noteItem.setAttribute('date', new Date(note.createdAt).toLocaleDateString());
+      noteItem.setAttribute(
+        'date',
+        new Date(note.createdAt).toLocaleDateString()
+      );
       noteItem.setAttribute('id', note.id);
       noteItem.setAttribute('archived', note.archived);
       container.appendChild(noteItem);

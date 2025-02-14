@@ -5,11 +5,19 @@ class NoteItem extends HTMLElement {
   connectedCallback() {
     this.title = this.getAttribute('title');
     this.body = this.getAttribute('body');
+
     this.date = this.getAttribute('date');
     this.id = this.getAttribute('id');
     this.archived = this.getAttribute('archived') === 'true';
 
-    console.log('NoteItem Attributes:', this.title, this.body, this.date, this.id, this.archived);
+    console.log(
+      'NoteItem Attributes:',
+      this.title,
+      this.body,
+      this.date,
+      this.id,
+      this.archived
+    );
 
     this.render();
   }
@@ -28,7 +36,9 @@ class NoteItem extends HTMLElement {
     `;
 
     this.querySelector('.delete-note').addEventListener('click', async () => {
-      const confirmed = await showConfirm('Kalo dihapus, gak bisa balik lagi lho!');
+      const confirmed = await showConfirm(
+        'Kalo dihapus, gak bisa balik lagi lho!'
+      );
       if (confirmed) {
         try {
           await deleteNote(this.id);
@@ -41,17 +51,23 @@ class NoteItem extends HTMLElement {
     });
 
     if (!this.archived) {
-      this.querySelector('.archive-note').addEventListener('click', async () => {
-        await archiveNote(this.id);
-        document.dispatchEvent(new CustomEvent('noteUpdated'));
-      });
+      this.querySelector('.archive-note').addEventListener(
+        'click',
+        async () => {
+          await archiveNote(this.id);
+          document.dispatchEvent(new CustomEvent('noteUpdated'));
+        }
+      );
     }
 
     if (this.archived) {
-      this.querySelector('.unarchive-note').addEventListener('click', async () => {
-        await unarchiveNote(this.id);
-        document.dispatchEvent(new CustomEvent('noteUpdated'));
-      });
+      this.querySelector('.unarchive-note').addEventListener(
+        'click',
+        async () => {
+          await unarchiveNote(this.id);
+          document.dispatchEvent(new CustomEvent('noteUpdated'));
+        }
+      );
     }
   }
 }

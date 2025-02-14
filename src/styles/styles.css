@@ -1,29 +1,29 @@
 :root {
-  /* Light theme */
-  --background-color: #f6f7fc; /* Light gray */
+  --background-color: #f6f7fc;
   --notes-color: #ffffff;
   --notes-border-color: #edf1fa;
-  --text-color: #000000; /* Black */
-  --accent-color: #007aff; /* iOS blue */
-  --toggle-background: #e2e2e2; /* Light gray for toggle background */
-  --toggle-knob: #fff; /* White for toggle knob */
+  --text-color: #000000;
+  --accent-color: #007aff; 
+  --toggle-background: #e2e2e2;
+  --toggle-knob: #fff; 
 }
 
 [data-theme='dark'] {
-  /* Dark theme */
-  --background-color: #111111; /* Deep dark gray */
+  --background-color: #111111; /
   --notes-color: #1f1f1f;
   --notes-border-color: #1b1b1b;
-  --text-color: #ffffff; /* White */
-  --accent-color: #007aff; /* iOS blue */
-  --toggle-background: #3a3a3c; /* Dark gray for toggle background */
-  --toggle-knob: #007aff; /* iOS blue for toggle knob */
+  --text-color: #ffffff; 
+  --accent-color: #007aff; 
+  --toggle-background: #3a3a3c; 
+  --toggle-knob: #007aff; 
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
   font-size: 18px;
   margin: 0;
   padding: 0;
@@ -115,11 +115,13 @@ form button {
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   word-wrap: break-word;
   overflow-wrap: anywhere;
-  max-height: ; /* Batasi tinggi */
-  overflow: auto; /* Tambahkan scroll jika teks terlalu panjang */
+  max-height: 200px; 
+  overflow: auto; 
 }
 
 .note-grid {
@@ -177,7 +179,9 @@ form button {
 .fade-in {
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
 
 .fade-in.loaded {
