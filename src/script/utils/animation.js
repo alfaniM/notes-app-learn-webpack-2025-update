@@ -1,19 +1,15 @@
-// Import GSAP
 import { gsap } from 'gsap';
-// Import AOS
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Initialize AOS
 const initializeAOS = () => {
   AOS.init({
-    duration: 800, // Durasi animasi
-    easing: 'ease-out', // Easing animasi
-    once: true, // Hanya animasi sekali
+    duration: 700,
+    easing: 'ease-out',
+    once: true,
   });
 };
 
-// Animasi Button dengan GSAP
 const animateButton = () => {
   gsap.utils.toArray('.button').forEach((button) => {
     button.addEventListener('mouseenter', () => {

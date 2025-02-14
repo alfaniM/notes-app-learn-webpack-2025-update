@@ -1,6 +1,5 @@
 import Swal from 'sweetalert2';
 
-// Notifikasi sukses
 export function showSuccess(message = 'Success!') {
   Swal.fire({
     icon: 'success',
@@ -11,7 +10,6 @@ export function showSuccess(message = 'Success!') {
   });
 }
 
-// Notifikasi saat offline
 export function showOfflineAlert() {
   Swal.fire({
     icon: 'error',
@@ -23,7 +21,6 @@ export function showOfflineAlert() {
   });
 }
 
-// notifikasi error
 export function showError(message = 'An error occurred!') {
   Swal.fire({
     icon: 'error',
@@ -32,7 +29,6 @@ export function showError(message = 'An error occurred!') {
   });
 }
 
-// notifikasi konfirmasi
 export async function showConfirm(
   message = 'Are you sure you want to proceed?'
 ) {
