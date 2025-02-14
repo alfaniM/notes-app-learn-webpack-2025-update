@@ -3,19 +3,19 @@
   --notes-color: #ffffff;
   --notes-border-color: #edf1fa;
   --text-color: #000000;
-  --accent-color: #007aff; 
+  --accent-color: #007aff;
   --toggle-background: #e2e2e2;
-  --toggle-knob: #fff; 
+  --toggle-knob: #fff;
 }
 
 [data-theme='dark'] {
-  --background-color: #111111; /
+  --background-color: #111111;
   --notes-color: #1f1f1f;
   --notes-border-color: #1b1b1b;
-  --text-color: #ffffff; 
-  --accent-color: #007aff; 
-  --toggle-background: #3a3a3c; 
-  --toggle-knob: #007aff; 
+  --text-color: #ffffff;
+  --accent-color: #007aff;
+  --toggle-background: #3a3a3c;
+  --toggle-knob: #007aff;
 }
 
 body {
@@ -120,8 +120,8 @@ form button {
     box-shadow 0.3s ease;
   word-wrap: break-word;
   overflow-wrap: anywhere;
-  max-height: 200px; 
-  overflow: auto; 
+  max-height: 200px;
+  overflow: auto;
 }
 
 .note-grid {

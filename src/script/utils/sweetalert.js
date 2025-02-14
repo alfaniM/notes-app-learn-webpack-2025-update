@@ -11,6 +11,17 @@ export function showSuccess(message = 'Success!') {
   });
 }
 
+export function showOfflineAlert() {
+  Swal.fire({
+    icon: 'error',
+    title: 'Koneksi Terputus!',
+    text: 'Periksa koneksi internet Anda lalu coba lagi.',
+    confirmButtonText: 'Coba Lagi',
+  }).then(() => {
+    location.reload();
+  });
+}
+
 // Error notification
 export function showError(message = 'An error occurred!') {
   Swal.fire({

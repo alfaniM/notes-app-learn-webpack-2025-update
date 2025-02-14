@@ -1,21 +1,48 @@
 const BASE_URL = 'https://notes-api.dicoding.dev/v2';
 
 /** Helper for fetch with error handling */
+// async function fetchWithHandling(url, options = {}) {
+//   try {
+//     const response = await fetch(url, options);
+//     const result = await response.json();
+//     console.log('Fetch URL:', url);
+//     console.log('Fetch Result:', result);
+
+//     if (!response.ok) {
+//       throw new Error(`HTTP Error! Status: ${response.status}`);
+//     }
+
+//     return result;
+//   } catch (error) {
+//     console.error(`Failed to fetch: ${url}`, error);
+//     throw error; // Let the error propagate
+//   }
+// }
+
 async function fetchWithHandling(url, options = {}) {
   try {
     const response = await fetch(url, options);
-    const result = await response.json();
-    console.log('Fetch URL:', url);
-    console.log('Fetch Result:', result);
-
     if (!response.ok) {
       throw new Error(`HTTP Error! Status: ${response.status}`);
     }
 
+    const result = await response.json();
+    console.log('Fetch URL:', url);
+    console.log('Fetch Result:', result);
+
     return result;
   } catch (error) {
-    console.error(`Failed to fetch: ${url}`, error);
-    throw error; // Let the error propagate
+    console.error('Fetch gagal:', error);
+
+    if (!navigator.onLine) {
+      showOfflineAlert();
+    } else {
+      showError(
+        error.message || 'Gagal mengambil data, coba beberapa saat lagi.'
+      );
+    }
+
+    throw error;
   }
 }
 

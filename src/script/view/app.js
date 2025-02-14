@@ -1,5 +1,9 @@
 import { addNote } from '../data/api.js';
-import { showSuccess, showError } from '../utils/sweetalert.js';
+import {
+  showSuccess,
+  showError,
+  showOfflineAlert,
+} from '../utils/sweetalert.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#note-form');
@@ -40,4 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
       showError('Yah gagal, coba lagi nanti ya!');
     }
   });
+});
+
+window.addEventListener('load', function () {
+  if (!navigator.onLine) {
+    showOfflineAlert();
+  }
 });
