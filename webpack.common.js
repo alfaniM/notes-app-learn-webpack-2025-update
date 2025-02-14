@@ -9,7 +9,6 @@ module.exports = {
       template: './src/template.html',
     }),
   ],
-  watch: true,
   devtool: false,
   module: {
     rules: [

@@ -2,7 +2,6 @@ import { fetchNotes, fetchArchivedNotes } from '../data/api.js';
 
 class NoteList extends HTMLElement {
   async connectedCallback() {
-    console.log('NoteList connected');
     this.renderNotes();
     document.addEventListener('noteUpdated', () => this.renderNotes());
   }
@@ -25,7 +24,6 @@ class NoteList extends HTMLElement {
     }
 
     spinner.show();
-    console.log('Loading spinner ditampilkan');
 
     try {
       const activeNotes = await fetchNotes();
@@ -49,7 +47,6 @@ class NoteList extends HTMLElement {
     const container = this.querySelector(containerSelector);
     container.innerHTML = '';
     notes.forEach((note) => {
-      console.log('Rendering Note:', note);
       const noteItem = document.createElement('note-item');
       noteItem.setAttribute('title', note.title);
       noteItem.setAttribute('body', note.body);

@@ -10,12 +10,6 @@ class AppBar extends HTMLElement {
         </div>
       </header>
       `;
-
-    this.querySelector('#search-button').addEventListener('click', () => {
-      const keyword = this.querySelector('#search-bar').value;
-      document.querySelector('note-list').searchNotes(keyword);
-    });
   }
 }
-
 customElements.define('app-bar', AppBar);

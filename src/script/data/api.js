@@ -8,8 +8,6 @@ async function fetchWithHandling(url, options = {}) {
     }
 
     const result = await response.json();
-    console.log('Fetch URL:', url);
-    console.log('Fetch Result:', result);
 
     return result;
   } catch (error) {

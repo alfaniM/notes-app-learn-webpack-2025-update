@@ -7,5 +7,3 @@ import './script/component/note-list.js';
 import './script/component/footer-bar.js';
 import './script/component/loading-spinner.js';
 import './script/utils/animation.js';
-
-console.log('Aplikasi dimulai!');

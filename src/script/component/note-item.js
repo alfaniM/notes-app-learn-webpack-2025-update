@@ -10,15 +10,6 @@ class NoteItem extends HTMLElement {
     this.id = this.getAttribute('id');
     this.archived = this.getAttribute('archived') === 'true';
 
-    console.log(
-      'NoteItem Attributes:',
-      this.title,
-      this.body,
-      this.date,
-      this.id,
-      this.archived
-    );
-
     this.render();
   }
 
