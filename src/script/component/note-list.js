@@ -10,11 +10,10 @@ class NoteList extends HTMLElement {
   async renderNotes() {
     this.innerHTML = `
       <loading-spinner></loading-spinner>
-      <h2>Active Notes</h2>
-      <div class="note-grid fade-in" id="active-notes"></div>
-      <h2>Archived Notes</h2>
-      <div class="note-grid fade-in" id="archived-notes"></div>
-
+      <h2 data-aos="fade-right">Active Notes</h2>
+      <div class="note-grid fade-in" id="active-notes" data-aos="fade-up"></div>
+      <h2 data-aos="fade-right">Archived Notes</h2>
+      <div class="note-grid fade-in" id="archived-notes" data-aos="fade-up"></div>
     `;
 
     await customElements.whenDefined('loading-spinner');

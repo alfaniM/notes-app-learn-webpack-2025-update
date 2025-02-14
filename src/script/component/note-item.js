@@ -29,7 +29,7 @@ class NoteItem extends HTMLElement {
         <p>${this.body}</p>
         <small>${this.date}</small>
         <div class="note-actions">
-          <button class="delete-note" data-id="${this.id}">❌ Delete</button>
+          <button class="button delete-note" data-id="${this.id}">❌ Delete</button>
           ${this.archived ? `<button class="unarchive-note" data-id="${this.id}">📤 Unarchive</button>` : `<button class="archive-note" data-id="${this.id}">📥 Archive</button>`}
         </div>
       </div>

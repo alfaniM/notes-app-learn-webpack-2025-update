@@ -10,7 +10,7 @@
     <div class="container">
       <!-- header -->
       <nav-bar></nav-bar>
-      <header>
+      <header data-aos="fade-down">
         <h1>📙 Notes App</h1>
         <div class="toggle-wrapper" id="theme-toggle">
           <span class="icon">☀️</span>
@@ -18,9 +18,8 @@
           <span class="icon">🌙</span>
         </div>
       </header>
-
       <main>
-        <form id="note-form">
+        <form data-aos="fade-up" id="note-form">
           <input
             type="text"
             id="note-title"
@@ -32,14 +31,11 @@
             placeholder="Add your note description"
             required
           ></textarea>
-          <button type="submit">➕ Add Note</button>
+          <button type="submit" class="button">➕ Add Note</button>
         </form>
         <note-list></note-list>
-        <!-- <section id="notes-container" class="note-list"></section> -->
       </main>
     </div>
-
-    <!-- footer -->
     <footer>
       <footer-bar></footer-bar>
     </footer>

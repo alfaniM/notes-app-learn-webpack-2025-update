@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/index.js', // Entry point utama
+  entry: './src/index.js',
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/template.html', // Menggunakan template.html
+      template: './src/template.html',
     }),
   ],
   watch: true,
