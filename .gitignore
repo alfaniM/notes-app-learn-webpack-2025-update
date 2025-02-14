@@ -21,3 +21,4 @@ build/
 
 # dummy
 bulk_add_sample_notes.sh
+new-notes -webpack.zip
