@@ -1,7 +1,7 @@
 # Notes App - Learn Webpack 2025 Update
 
 ## 📌 Deskripsi
-Notes App adalah aplikasi pencatatan sederhana yang dikembangkan dengan JavaScript dan Web Components. Proyek ini menggunakan Webpack untuk mengelola modul dan proses build, serta mengimplementasikan API dan fitur pencarian langsung.
+Notes App adalah aplikasi pencatatan sederhana yang dikembangkan dengan JavaScript dan Web Components. Proyek ini menggunakan Webpack untuk mengelola modul dan proses build.
 
 ## 🚀 Fitur
 - **Pencatatan Interaktif**: Tambah, edit, dan hapus catatan dengan tampilan yang responsif.
