@@ -12,6 +12,8 @@ module.exports = merge(config, {
     compress: true,
     port: 3000,
     liveReload: true,
+    hot: true,
+    open: true,
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
