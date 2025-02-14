@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { watch } = require('fs');
 
 module.exports = {
   entry: './src/index.js', // Entry point utama
@@ -9,7 +8,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/template.html', // Menggunakan template.html
     }),
-    new MiniCssExtractPlugin(),
   ],
   watch: true,
   devtool: false,
@@ -34,14 +32,14 @@ module.exports = {
           'css-loader',
         ],
       },
-      // {
-      //   test: /\.html$/i,
-      //   loader: 'html-loader',
-      // },
-      // {
-      //   test: /\.(png|jpe?g|gif|svg)$/i,
-      //   type: 'asset/resource',
-      // },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
 };

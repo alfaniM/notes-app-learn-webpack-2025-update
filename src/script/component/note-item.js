@@ -1,4 +1,5 @@
 import { deleteNote, archiveNote, unarchiveNote } from '../data/api.js';
+import { showConfirm, showSuccess, showError } from '../utils/sweetalert.js';
 
 class NoteItem extends HTMLElement {
   connectedCallback() {
@@ -27,8 +28,16 @@ class NoteItem extends HTMLElement {
     `;
 
     this.querySelector('.delete-note').addEventListener('click', async () => {
-      await deleteNote(this.id);
-      document.dispatchEvent(new CustomEvent('noteUpdated'));
+      const confirmed = await showConfirm('Kalo dihapus, gak bisa balik lagi lho!');
+      if (confirmed) {
+        try {
+          await deleteNote(this.id);
+          showSuccess('Notes berhasil di hapus!');
+          document.dispatchEvent(new CustomEvent('noteUpdated'));
+        } catch (error) {
+          showError('Gagal menghapus notes. Coba lagi nanti ya!');
+        }
+      }
     });
 
     if (!this.archived) {

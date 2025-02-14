@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       await addNote({ title, body });
-      showSuccess('Note added successfully!');
+      showSuccess('Yeay, berhasil menambahkan note!');
 
       // Reset input
       titleInput.value = '';
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.dispatchEvent(new CustomEvent('noteUpdated'));
     } catch (error) {
       console.error('Failed to add note:', error);
-      showError('Failed to add note. Please try again later.');
+      showError('Yah gagal, coba lagi nanti ya!');
     }
   });
 });

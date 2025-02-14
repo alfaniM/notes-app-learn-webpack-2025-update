@@ -9,30 +9,40 @@ class NoteList extends HTMLElement {
 
   async renderNotes() {
     this.innerHTML = `
+      <loading-spinner></loading-spinner>
       <h2>Active Notes</h2>
-      <div class="note-grid" id="active-notes"></div>
+      <div class="note-grid fade-in" id="active-notes"></div>
       <h2>Archived Notes</h2>
-      <div class="note-grid" id="archived-notes"></div>
+      <div class="note-grid fade-in" id="archived-notes"></div>
+
     `;
+
+    await customElements.whenDefined('loading-spinner'); // Tunggu sampai elemen terdaftar
+    const spinner = this.querySelector('loading-spinner');
+
+    if (!spinner) {
+      console.error('Loading spinner tidak ditemukan!');
+      return;
+    }
+
+    spinner.show(); // Tampilkan loading spinner
+    console.log('Loading spinner ditampilkan');
 
     try {
       const activeNotes = await fetchNotes();
       const archivedNotes = await fetchArchivedNotes();
-      console.log('Active Notes:', activeNotes);
-      console.log('Archived Notes:', archivedNotes);
-
-      if (!Array.isArray(activeNotes)) {
-        throw new Error('Active notes data is not an array.');
-      }
-
-      if (!Array.isArray(archivedNotes)) {
-        throw new Error('Archived notes data is not an array.');
-      }
 
       this.renderNoteList(activeNotes, '#active-notes');
       this.renderNoteList(archivedNotes, '#archived-notes');
+
+      setTimeout(() => {
+        this.querySelector('#active-notes').style.opacity = '1';
+        this.querySelector('#archived-notes').style.opacity = '1';
+      }, 300);
     } catch (error) {
       console.error('Error fetching notes:', error);
+    } finally {
+      spinner.hide(); // Sembunyikan loading spinner setelah selesai
     }
   }
 

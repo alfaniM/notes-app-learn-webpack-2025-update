@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "gsap": "^3.12.7",
     "sweetalert2": "^11.16.0"
   },
   "name": "new-notes--webpack",
@@ -24,7 +25,8 @@
   },
   "scripts": {
     "dev": "webpack --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "start-dev": "webpack serve --config webpack.dev.js"
   },
   "repository": {
     "type": "git",

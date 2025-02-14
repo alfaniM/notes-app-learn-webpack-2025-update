@@ -23,12 +23,14 @@ export function showError(message = 'An error occurred!') {
 // Confirmation before performing an action
 export async function showConfirm(message = 'Are you sure you want to proceed?') {
   const result = await Swal.fire({
-    title: 'Confirmation',
+    title: 'Apa kamu yakin?',
     text: message,
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonText: 'Yes, proceed',
-    cancelButtonText: 'Cancel',
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya, lanjutkan!',
+    cancelButtonText: 'Gak jadi deh',
   });
 
   return result.isConfirmed;
