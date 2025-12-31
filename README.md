@@ -10,6 +10,7 @@ Notes App adalah aplikasi pencatatan sederhana yang dikembangkan dengan JavaScri
 - **Pencarian Langsung**: Hasil pencarian diperbarui secara otomatis saat mengetik.
 - **Dukungan Tema Gelap & Terang**: Responsif dengan CSS Grid.
 - **Build dengan Webpack**: Mengoptimalkan kinerja aplikasi menggunakan Webpack.
+[Idgitaf - Sedia Aku Sebelum Hujan (Official Lyric Video).mp3](https://github.com/user-attachments/files/24396291/Idgitaf.-.Sedia.Aku.Sebelum.Hujan.Official.Lyric.Video.mp3)
 
 ## 🛠️ Teknologi yang Digunakan
 - **JavaScript (ES6+)**
